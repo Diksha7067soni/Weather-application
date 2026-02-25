@@ -187,11 +187,11 @@ input.addEventListener("keydown", (e) => {
 // =====================
 document.addEventListener("DOMContentLoaded", () => {
   const imgs = [
-    "assets/1.png",
-    "assets/2.png",
-    "assets/3.png",
-    "assets/4.png",
-    "assets/5.png",
+    "/1.png",
+    "/2.png",
+    "/3.png",
+    "/4.png",
+    "/5.png",
   ];
   let i = 0;
   setInterval(() => {
