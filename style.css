@@ -1,0 +1,398 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    background: #d3eff0;
+    padding: 10px;
+}
+
+.search_box{
+    min-height: 400px;
+    padding: 20px;
+    background: url(assets/1.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero-txt{
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 60px;
+}
+.hero-txt h1{
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+.hero-txt h3{
+    color: rgb(226, 204, 204);
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.search_box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.search_box > * {
+    position: relative;
+    z-index: 1;
+}
+
+.search-icon-wrapper {
+    position: relative;
+    width: 400px;
+    display: flex;
+}
+
+.search-icon-wrapper input {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* space for icon */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
+
+
+
+
+
+/* css for the DROPDOWN */
+.dropdown {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.dropdown input {
+  width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 45px;
+  width: 400px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  display: none;
+  z-index: 1000;
+}
+
+.dropdown-list div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-list div:hover {
+  background-color: #f0f0f0;
+}
+
+
+
+
+
+select{
+    width: 400px;
+    height: 41px;
+    padding: 10px;
+}
+button{
+    width: 400px;
+    height: 41px;
+    background: transparent;
+    border: 1px solid black;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+button:hover{
+    background: white;
+    color: black;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+/* weather card box css  */
+
+/* ===================== */
+/* Weather Cards Styling */
+/* ===================== */
+.weather-box {
+    margin: 30px auto;
+    padding: 30px;
+    max-width: 900px;
+    background: #f9f9f9;
+    border-radius: 12px;
+}
+
+.weather-box h2,
+.weather-box h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.weather-box h3 {
+    margin-top: 40px; /* spacing between current weather and forecast */
+    font-size: 28px;
+}
+
+.weather-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* center all cards */
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.weather-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    min-width: 200px; /* ensures cards don't shrink too much */
+    max-width: 220px;
+}
+
+.weather-card:hover {
+    transform: translateY(-5px);
+}
+
+.weather-card h4 {
+    margin-bottom: 15px;
+    color: #555;
+    font-weight: 600;
+    font-size: 22px; /* increase title font */
+}
+
+.weather-card p {
+    font-size: 20px; /* bigger font for content */
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+/* Skeleton for loading */
+.skeleton {
+    height: 120px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: pulse 1.5s infinite;
+    border-radius: 12px;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Add spacing above and below the forecast section */
+.weather-box .forecast-section {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+
+/* Weather Suggestion Popup */
+.weather-suggestion {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #fff;
+  color: #333;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  z-index: 10000;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.weather-suggestion .suggestion-icon {
+  font-size: 24px;
+}
+
+.weather-suggestion .suggestion-text {
+  flex: 1;
+}
+
+.weather-suggestion .suggestion-close {
+  cursor: pointer;
+  font-size: 18px;
+  color: #555;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+
+/* ============================= */
+/* RESPONSIVE DESIGN */
+/* ============================= */
+
+/* Tablets (max-width: 992px) */
+@media (max-width: 992px) {
+
+  .hero-txt h1 {
+    font-size: 36px;
+  }
+
+  .hero-txt h3 {
+    font-size: 20px;
+  }
+
+  .search-icon-wrapper,
+  .dropdown input,
+  .dropdown-list,
+  button {
+    width: 320px;
+  }
+
+  .weather-box {
+    padding: 20px;
+    margin: 20px;
+  }
+}
+
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+
+  .logo img {
+    width: 220px;
+  }
+
+  .search_box {
+    min-height: 100vh;
+    padding: 15px;
+  }
+
+  .hero-txt {
+    margin-bottom: 40px;
+  }
+
+  .hero-txt h1 {
+    font-size: 30px;
+  }
+
+  .hero-txt h3 {
+    font-size: 18px;
+  }
+
+  .dropdown {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-icon-wrapper,
+  .dropdown input,
+  .dropdown-list,
+  button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  button {
+    margin-left: 0;
+  }
+
+  .weather-cards {
+    gap: 15px;
+  }
+
+  .weather-card {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .weather-card h4 {
+    font-size: 20px;
+  }
+
+  .weather-card p {
+    font-size: 18px;
+  }
+
+  /* Suggestion popup mobile fix */
+  .weather-suggestion {
+    right: 10px;
+    left: 10px;
+    bottom: 15px;
+    font-size: 14px;
+  }
+}
+
+
+/* Small Phones (max-width: 480px) */
+@media (max-width: 480px) {
+
+  .hero-txt h1 {
+    font-size: 26px;
+  }
+
+  .hero-txt h3 {
+    font-size: 16px;
+  }
+
+  .search-icon {
+    font-size: 18px;
+  }
+
+  .weather-box h2 {
+    font-size: 22px;
+  }
+
+  .weather-box h3 {
+    font-size: 22px;
+  }
+
+  .weather-suggestion {
+    padding: 12px 14px;
+  }
+}
